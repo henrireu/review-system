@@ -3,7 +3,7 @@ import Reviews from "./components/Reviews"
 const App = () => {
   return (
     <div>
-      <h1>morotesti</h1>
+      <h1>morotesti2</h1>
       <Reviews />
     </div>
   )

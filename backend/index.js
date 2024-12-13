@@ -10,7 +10,7 @@ let reviews = [
     id: "1",
     stars: 5,
     comment: "Paras ikinä"
-  },
+  }, 
 
   {
     id: "2",
