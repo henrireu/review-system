@@ -1,10 +1,15 @@
-import Reviews from "./components/Reviews"
+import { useState } from "react";
+
+import Services from "./pages/Services"
 
 const App = () => {
+  // eslint-disable-next-line no-unused-vars
+  const [loggedIn, setLoggedIn] = useState(true);
+
   return (
-    <div>
-      <h1>morotesti2</h1>
-      <Reviews />
+    <div className="px-10">
+      <h1 className="text-5xl text-center">Review System</h1>
+      <Services />
     </div>
   )
 }

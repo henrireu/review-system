@@ -19,8 +19,19 @@ let reviews = [
   }
 ]
 
+let services = [
+  {
+    id: "1",
+    
+  }
+]
+
 app.get('/', (request, response) => {
   response.send('<h1>Hello World!</h1>')
+})
+
+app.get('/api/services', (request, response) => {
+
 })
 
 app.get('/api/reviews', (request, response) => {
