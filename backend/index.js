@@ -7,16 +7,28 @@ app.use(express.json())
 
 let reviews = [
   {
-    id: "1",
+    reviewId: "1",
+    serviceId: "1",
+    userName: "test-user72",
     stars: 5,
     comment: "Paras ikinä"
   }, 
 
   {
-    id: "2",
+    reviewId: "2",
+    serviceId: "1",
+    userName: "test-user72",
     stars: 1,
     comment: "Tosi huono"
-  }
+  },
+
+  {
+    reviewId: "3",
+    serviceId: "1",
+    userName: "test-user88",
+    stars: 5,
+    comment: "Paras ikinä koskaan todellakin"
+  }, 
 ]
 
 let services = [

@@ -39,7 +39,7 @@ const Services = () => {
         {serviceId === "1" ? (
           <>
           <div className="flex gap-5">
-            <img src={sportsNetwork}  className="h-[400px] w-[400px]"/>
+            <img src={sportsNetwork}  className="h-[200px] sm:h-[400px] w-[200px] sm:w-[400px]"/>
             <h1 className="text-3xl mt-2">Sports network</h1>
           </div>
           <Reviews id={serviceId}/>
@@ -47,7 +47,7 @@ const Services = () => {
         ): (
           <>
           <div className="flex gap-5">
-            <img src={indianChai} className="h-[400px] w-[400px]"/>
+            <img src={indianChai} className="h-[200px] sm:h-[400px] w-[200px] sm:w-[400px]"/>
             <h1 className="text-3xl mt-2">Indian Chai</h1>
           </div>
           <Reviews id={serviceId}/>
