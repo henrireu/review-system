@@ -15,25 +15,25 @@ const Services = ({loggedIn}) => {
 
   if (serviceId === "") return (
     <div>
-        <h1 className="text-3xl">Services</h1>
+      <h1 className="text-3xl">Services</h1>
 
-        <div className="flex gap-10 mt-10">
+      <div className="flex gap-10 mt-10">
 
-          <div 
-            className="p-10 border border-black hover:bg-gray-200 hover:cursor-pointer"
-            onClick={() => setServiceId("1")}
-          >
-            <img src={sportsNetwork} alt="sportsnetwork" className="h-[200px] w-[200px]"/>
-          </div>
-
-          <div 
-            className="p-10 border border-black hover:bg-gray-200 hover:cursor-pointer"
-            onClick={() => setServiceId("2")}
-          >
-            <img src={indianChai} alt="indianChai" className="h-[200px] w-[200px]"/>
-          </div>
-
+        <div 
+          className="p-10 border border-black hover:bg-gray-200 hover:cursor-pointer"
+          onClick={() => setServiceId("1")}
+        >
+          <img src={sportsNetwork} alt="sportsnetwork" className="h-[200px] w-[200px]"/>
         </div>
+
+        <div 
+          className="p-10 border border-black hover:bg-gray-200 hover:cursor-pointer"
+          onClick={() => setServiceId("2")}
+        >
+          <img src={indianChai} alt="indianChai" className="h-[200px] w-[200px]"/>
+        </div>
+
+      </div>
        
     </div>
   )
@@ -45,8 +45,8 @@ const Services = ({loggedIn}) => {
         <ReviewForm leave={leave}/>
       )}
 
-        {serviceId === "1" ? (
-          <>
+      {serviceId === "1" ? (
+        <>
           <div className="flex gap-5">
             <img src={sportsNetwork}  className="h-[200px] sm:h-[400px] w-[200px] sm:w-[400px]"/>
             <div>
@@ -65,9 +65,9 @@ const Services = ({loggedIn}) => {
             </div>
           </div>
           <Reviews id={serviceId}/>
-          </>
-        ): (
-          <>
+        </>
+      ): (
+        <>
           <div className="flex gap-5">
             <img src={indianChai} className="h-[200px] sm:h-[400px] w-[200px] sm:w-[400px]"/>
             <div>
@@ -86,9 +86,9 @@ const Services = ({loggedIn}) => {
             </div>
           </div>
           <Reviews id={serviceId}/>
-          </>
+        </>
           
-        )}
+      )}
       
       <button onClick={() => setServiceId("")}>back</button>
     </div>
