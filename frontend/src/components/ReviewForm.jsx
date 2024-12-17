@@ -1,10 +1,28 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react"
+import { createReview } from "../services/reviewsService"
 
 // eslint-disable-next-line react/prop-types
-const ReviewForm = ({leave}) => {
+const ReviewForm = ({leave, serviceId}) => {
   const [starCount, setStarCount] = useState(0)
   const [clickedCount, setClickedCount] = useState(0)
+  const [comment, setComment] = useState("")
+
+  const handleCreate = async () => {
+    try {
+      const newReview = {
+        serviceId: serviceId,
+        userName: "testikäyttäjä77",
+        stars: starCount,
+        comment: comment
+      }
+      await createReview(newReview)
+    } catch (error) {
+      console.error(error)
+    } finally {
+      leave()
+    }
+  }
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-85 flex items-center justify-center">
@@ -92,8 +110,21 @@ const ReviewForm = ({leave}) => {
           className="mt-2 p-2 w-full h-32 rounded border border-gray-300 resize-none"
           rows="5"
           placeholder="Write your comment here..."
+          value={comment}
+          onChange={e => setComment(e.target.value)}
         ></textarea>
+        <div 
+          className="mt-10 bg-goldish flex items-center gap-2 text-white p-2 rounded hover:cursor-pointer hover:bg-goldish2"
+          onClick={handleCreate}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+          </svg>
+          <p className="text-xl">Send review</p>
+        </div>
       </div>
+
+      
 
     </div>
   )

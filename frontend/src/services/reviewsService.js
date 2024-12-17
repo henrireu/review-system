@@ -12,4 +12,9 @@ const getReviewsById = (id) => {
   })
 }
 
-export { getAllReviews, getReviewsById }
+const createReview = (newReview) => {
+  const request = axios.post('http://localhost:3001/api/reviews', newReview)
+  return request.then(response => response)
+}
+
+export { getAllReviews, getReviewsById, createReview }

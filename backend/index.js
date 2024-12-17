@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const app = express()
+const uuid = require('uuid')
 
 app.use(cors())
 app.use(express.json())
@@ -31,13 +32,6 @@ let reviews = [
   }, 
 ]
 
-let services = [
-  {
-    id: "1",
-    
-  }
-]
-
 app.get('/', (request, response) => {
   response.send('<h1>Hello World!</h1>')
 })
@@ -63,17 +57,10 @@ app.delete('/api/reviews/:id', (request, response) => {
   response.status(204).end()
 })
 
-const generateId = () => {
-  const maxId = reviews.length > 0
-    ? Math.max(...reviews.map(r => Number(r.id)))
-    : 0
-  return String(maxId + 1)
-}
-
 app.post('/api/reviews', (request, response) => {
   const body = request.body
 
-  if (!body.stars) {
+  if (!body.stars || !body.serviceId || !body.userName) {
     return response.status(400).json({
       error: 'content missing'
     })
@@ -82,7 +69,9 @@ app.post('/api/reviews', (request, response) => {
   const review = {
     stars : body.stars,
     comment : body.comment || "",
-    id: generateId()
+    serviceId: body.serviceId,
+    userName: body.userName,
+    reviewId: uuid.v4()
   }
 
   reviews = reviews.concat(review)

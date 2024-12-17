@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+ 
 import sportsNetwork from '../assets/service1.png'
 import indianChai from '../assets/service2.jpg'
 
@@ -11,7 +11,10 @@ const Services = ({loggedIn}) => {
   const [serviceId, setServiceId] = useState("")
   const [showForm, setShowForm] = useState(false)
 
-  const leave = () => setShowForm(false)
+  const leave = () => {
+    setShowForm(false)
+    setServiceId("")
+  }
 
   if (serviceId === "") return (
     <div>
@@ -41,12 +44,11 @@ const Services = ({loggedIn}) => {
   return (
     <div className="flex flex-col">
 
-      {showForm && (
-        <ReviewForm leave={leave}/>
-      )}
-
       {serviceId === "1" ? (
         <>
+          {showForm && (
+            <ReviewForm leave={leave} serviceId={"1"}/>
+          )}
           <div className="flex gap-5">
             <img src={sportsNetwork}  className="h-[200px] sm:h-[400px] w-[200px] sm:w-[400px]"/>
             <div>
@@ -68,6 +70,9 @@ const Services = ({loggedIn}) => {
         </>
       ): (
         <>
+          {showForm && (
+            <ReviewForm leave={leave} serviceId={"2"}/>
+          )}
           <div className="flex gap-5">
             <img src={indianChai} className="h-[200px] sm:h-[400px] w-[200px] sm:w-[400px]"/>
             <div>
