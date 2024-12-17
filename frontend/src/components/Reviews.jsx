@@ -32,7 +32,7 @@ const Reviews = ({ id }) => {
 
       <div className="mt-5">
         {reviews.map(review => (
-          <SingleReview key={review.id} review={review}/>
+          <SingleReview key={review.reviewId} review={review}/>
         ))}
       </div>
   
@@ -54,7 +54,6 @@ const SingleReview = ({review}) => {
 
 const RatingStars = ({reviews}) => {
   const average = countAverageRating(reviews)
-  console.log(average)
   return (
     <StarRow number={average}/>
   )
