@@ -14,7 +14,7 @@ const getReviewsById = (id) => {
 
 const createReview = (newReview) => {
   const request = axios.post('http://localhost:3001/api/reviews', newReview)
-  return request.then(response => response)
+  return request.then(response => response.data)
 }
 
 export { getAllReviews, getReviewsById, createReview }

@@ -9,6 +9,11 @@ const ReviewForm = ({leaveForm, serviceId}) => {
 
   const [messageState, setMessageState] = useState("")
 
+  const handleStarX = () => {
+    setStarCount(0)
+    setClickedCount(0)
+  }
+
   const handleCreate = async () => {
     if (clickedCount === 0) {
       window.alert("Choose between 1-5 stars")
@@ -23,10 +28,6 @@ const ReviewForm = ({leaveForm, serviceId}) => {
         comment: comment
       }
       await createReview(newReview)
-    } catch (error) {
-      setMessageState("error")
-      console.error(error)
-    } finally {
       setMessageState("success")
 
       setTimeout(() => {
@@ -34,7 +35,14 @@ const ReviewForm = ({leaveForm, serviceId}) => {
         leaveForm()
       },[5000])
 
-    }
+    } catch (error) {
+      setMessageState("error")
+      console.error(error)
+
+      setTimeout(() => {
+        setMessageState("")
+      },[5000])
+    } 
   }
 
   return (
@@ -65,6 +73,7 @@ const ReviewForm = ({leaveForm, serviceId}) => {
           <div className="flex items-center gap-2 mt-2 h-[40px]">
             <StarRow number={clickedCount} />
             <p className="text-white text-xl">{`(${clickedCount})`}</p>
+
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
               fill="none" 
@@ -72,7 +81,7 @@ const ReviewForm = ({leaveForm, serviceId}) => {
               strokeWidth={1.5} 
               stroke="currentColor" 
               className="ml-auto hover:cursor-pointer size-7 text-red-500"
-              onClick={() => setClickedCount(0)}
+              onClick={handleStarX}
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
             </svg>
@@ -166,6 +175,12 @@ const ReviewForm = ({leaveForm, serviceId}) => {
                 <span className="sr-only">Loading...</span>
               </div>
             </div>
+          )}
+
+          {messageState === "error" && (
+            <div className="bg-red-600 rounded w-full h-full flex text-white p-2">
+              <p>Review creation failed</p>
+            </div> 
           )}
 
         </div>
