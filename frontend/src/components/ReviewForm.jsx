@@ -2,7 +2,7 @@
 import { useState } from "react"
 import { createReview } from "../services/reviewsService"
 
-const ReviewForm = ({leaveForm, serviceId}) => {
+const ReviewForm = ({leaveForm, serviceId, fetchData}) => {
   const [starCount, setStarCount] = useState(0)
   const [clickedCount, setClickedCount] = useState(0)
   const [comment, setComment] = useState("")
@@ -29,6 +29,10 @@ const ReviewForm = ({leaveForm, serviceId}) => {
       }
       await createReview(newReview)
       setMessageState("success")
+      fetchData()
+      setStarCount(0)
+      setClickedCount(0)
+      setComment("")
 
       setTimeout(() => {
         setMessageState("")
