@@ -11,9 +11,8 @@ const Services = ({loggedIn}) => {
   const [serviceId, setServiceId] = useState("")
   const [showForm, setShowForm] = useState(false)
 
-  const leave = () => {
+  const leaveForm = () => {
     setShowForm(false)
-    setServiceId("")
   }
 
   if (serviceId === "") return (
@@ -47,7 +46,7 @@ const Services = ({loggedIn}) => {
       {serviceId === "1" ? (
         <>
           {showForm && (
-            <ReviewForm leave={leave} serviceId={"1"}/>
+            <ReviewForm leaveForm={leaveForm} serviceId={"1"}/>
           )}
           <div className="flex gap-5">
             <img src={sportsNetwork}  className="h-[200px] sm:h-[400px] w-[200px] sm:w-[400px]"/>
@@ -71,7 +70,7 @@ const Services = ({loggedIn}) => {
       ): (
         <>
           {showForm && (
-            <ReviewForm leave={leave} serviceId={"2"}/>
+            <ReviewForm leaveForm={leaveForm} serviceId={"2"}/>
           )}
           <div className="flex gap-5">
             <img src={indianChai} className="h-[200px] sm:h-[400px] w-[200px] sm:w-[400px]"/>
