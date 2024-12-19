@@ -6,7 +6,7 @@ const App = () => {
   const [loggedIn, setLoggedIn] = useState(true);
 
   return (
-    <div className="px-10">
+    <div className="px-10 max-w-[1500px] flex-col mx-auto">
       <div className="flex w-full justify-center">
         <h1 className="text-5xl text-center">Review System</h1>
         {loggedIn === true ? (

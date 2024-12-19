@@ -67,17 +67,18 @@ const Reviews = ({ id, loggedIn }) => {
 
 const SingleReview = ({review}) => {
   return (
-    <div className="flex gap-5 border p-2 rounded mt-2">
-      <div className="space-y-2">
-        <StarRow number={review.stars}/>
-        <div className="flex">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-          </svg>
-          <p className="ms-1">{review.userName}</p>
-        </div>
+    <div className="border p-2 rounded mt-2">
+      <div className="flex">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+        </svg>
+        <p className="ms-1 font-semibold">{review.userName}</p>
+        <p className="ms-1 font-semibold ml-5">{review.date}</p>
       </div>
-      <p>{review.comment}</p>
+      <div className="mt-3">
+        <StarRow number={review.stars}/>
+      </div>
+      <p className="mt-3 break-words max-w-[800px]">{review.comment}</p>
     </div>
   )
 }

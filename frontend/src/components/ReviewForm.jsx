@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react"
 import { createReview } from "../services/reviewsService"
+import { getDate } from "../helpers/reviewHelper"
 
 const ReviewForm = ({leaveForm, serviceId, fetchData}) => {
   const [starCount, setStarCount] = useState(0)
@@ -25,7 +26,8 @@ const ReviewForm = ({leaveForm, serviceId, fetchData}) => {
         serviceId: serviceId,
         userName: "testikäyttäjä77",
         stars: starCount,
-        comment: comment
+        comment: comment,
+        date: getDate()
       }
       await createReview(newReview)
       setMessageState("success")

@@ -5,4 +5,10 @@ const countAverageRating = (reviews) => {
   return Number(result.toFixed(1))
 }
 
-export { countAverageRating}
+const getDate = () => {
+  const date = new Date()
+  const fullDate = date.getDate().toString() + "." + date.getMonth().toString() + "." + date.getFullYear().toString()
+  return fullDate
+}
+
+export { countAverageRating, getDate}

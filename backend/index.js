@@ -12,7 +12,8 @@ let reviews = [
     serviceId: "1",
     userName: "test-user72",
     stars: 5,
-    comment: "Paras ikinä"
+    comment: "Paras ikinä",
+    date: "13.11.2024"
   }, 
 
   {
@@ -20,7 +21,8 @@ let reviews = [
     serviceId: "1",
     userName: "test-user72",
     stars: 1,
-    comment: "Tosi huono"
+    comment: "Tosi huono",
+    date: "13.11.2024"
   },
 
   {
@@ -28,7 +30,8 @@ let reviews = [
     serviceId: "1",
     userName: "test-user88",
     stars: 5,
-    comment: "Paras ikinä koskaan todellakin"
+    comment: "Paras ikinä koskaan todellakin",
+    date: "13.11.2024"
   }, 
 ]
 
@@ -44,13 +47,13 @@ app.get('/api/reviews', (request, response) => {
   response.json(reviews)
 })
 
-app.get('/api/reviews/:id', (request, response) => {
+app.get('/api/reviews/:reviewId', (request, response) => {
   const id = request.params.id
   const review = reviews.find(review => review.id === id)
   response.json(review)
 })
 
-app.delete('/api/reviews/:id', (request, response) => {
+app.delete('/api/reviews/:reviewId', (request, response) => {
   const id = request.params.id
   reviews = reviews.filter(review => review.id !== id)
 
@@ -60,18 +63,19 @@ app.delete('/api/reviews/:id', (request, response) => {
 app.post('/api/reviews', (request, response) => {
   const body = request.body
 
-  if (!body.stars || !body.serviceId || !body.userName) {
+  if (!body.stars || !body.serviceId || !body.userName || !body.date) {
     return response.status(400).json({
       error: 'content missing'
     })
   }
 
   const review = {
-    stars : body.stars,
-    comment : body.comment || "",
+    reviewId: uuid.v4(),
     serviceId: body.serviceId,
     userName: body.userName,
-    reviewId: uuid.v4()
+    stars : body.stars,
+    comment : body.comment || "",
+    date: body.date
   }
 
   reviews = reviews.concat(review)

@@ -42,7 +42,7 @@ const Services = ({loggedIn}) => {
 
   return (
     <div className="flex flex-col">
-
+      <button className="bg-gray-300 w-[80px] p-2 mb-1" onClick={() => setServiceId("")}>back</button>
       {serviceId === "1" ? (
         <>
           <div className="flex gap-5">
@@ -66,7 +66,6 @@ const Services = ({loggedIn}) => {
           
       )}
       
-      <button onClick={() => setServiceId("")}>back</button>
     </div>
   )
   
