@@ -4,16 +4,10 @@ import sportsNetwork from '../assets/service1.png'
 import indianChai from '../assets/service2.jpg'
 
 import Reviews from '../components/Reviews'
-//import ReviewForm from '../components/ReviewForm'
 
 // eslint-disable-next-line react/prop-types
 const Services = ({loggedIn}) => {
   const [serviceId, setServiceId] = useState("")
-  //const [showForm, setShowForm] = useState(false)
-
-  /*const leaveForm = () => {
-    setShowForm(false)
-  }*/
 
   if (serviceId === "") return (
     <div>

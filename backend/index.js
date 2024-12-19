@@ -30,7 +30,7 @@ let reviews = [
     serviceId: "1",
     userName: "test-user88",
     stars: 5,
-    comment: "Paras ikinä koskaan todellakin",
+    comment: "Tuote yllätti minut positiivisesti jo heti paketista otettaessa. Materiaalin laatu tuntui korkeatasoiselta, ja viimeistely oli huolellisesti tehty. Käytössä se on ollut todella helppo ja intuitiivinen, eikä ohjekirjaa juuri tarvinnut vilkuilla. Ainoa miinus tulee siitä, että toimitus kesti hieman odotettua pidempään, mutta kokonaiskokemus oli silti erinomainen. Suosittelisin tätä ehdottomasti kenelle tahansa, joka arvostaa laatua ja helppokäyttöisyyttä.",
     date: "13.11.2024"
   }, 
 ]
