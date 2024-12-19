@@ -66,12 +66,12 @@ const Reviews = ({ id, loggedIn }) => {
 
 const SingleReview = ({review}) => {
   return (
-    <div className="flex border p-5 rounded mt-2">
+    <div className="flex flex-col sm:flex-row border gap-2 sm:gap-5 p-5 rounded mt-2">
       <div className="flex flex-col justify-between">
         <div>
           <StarRow number={review.stars}/>
         </div>
-        <div className="flex mt-5">
+        <div className="flex mt-2 sm:mt-5">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
           </svg>
@@ -79,9 +79,9 @@ const SingleReview = ({review}) => {
         </div>
       </div>
 
-      <div className="break-words max-w-[800px] ml-10 flex flex-col justify-between">
-        <p className="">{review.comment}</p>
-        <p className="font-semibold">{review.date}</p>
+      <div className="break-words max-w-[800px] flex flex-col justify-between">
+        <p>{review.comment}</p>
+        <p className="font-semibold mt-2">{review.date}</p>
       </div>
       
     </div>
