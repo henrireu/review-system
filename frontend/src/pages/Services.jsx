@@ -40,9 +40,9 @@ const Services = ({loggedIn}) => {
       {serviceId === "1" ? (
         <>
           <div className="flex gap-5">
-            <img src={sportsNetwork}  className="h-[200px] sm:h-[400px] w-[200px] sm:w-[400px]"/>
+            <img src={sportsNetwork}  className="h-[150px] sm:h-[400px] w-[150px] sm:w-[400px]"/>
             <div>
-              <h1 className="text-3xl mt-2">Sports network</h1>
+              <h1 className="text-xl sm:text-3xl mt-2">Sports network</h1>
             </div>
           </div>
           <Reviews id={serviceId} loggedIn={loggedIn}/>
